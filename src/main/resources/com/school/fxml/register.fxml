@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.school.controller.RegisterController"
+           styleClass="login-root"
+           prefWidth="420" prefHeight="460">
+
+    <VBox styleClass="login-form-panel" alignment="CENTER">
+        <VBox maxWidth="300" alignment="CENTER_LEFT" spacing="6">
+            <Label text="Register" styleClass="login-heading"/>
+            <Label text="Create a new account" styleClass="login-subheading"/>
+            <Region prefHeight="16"/>
+
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" styleClass="login-field"
+                       promptText="Choose a username" maxWidth="300"/>
+            <Region prefHeight="8"/>
+
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" styleClass="login-field"
+                           promptText="Choose a password" maxWidth="300"/>
+            <Region prefHeight="8"/>
+
+            <Label text="Confirm Password" styleClass="field-label"/>
+            <PasswordField fx:id="confirmPasswordField" styleClass="login-field"
+                           promptText="Repeat your password" maxWidth="300"/>
+            <Region prefHeight="6"/>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="300"/>
+            <Label fx:id="successLabel" styleClass="success-label" wrapText="true" maxWidth="300"/>
+            <Region prefHeight="6"/>
+
+            <Button text="Create Account" styleClass="btn-primary"
+                    maxWidth="300" prefHeight="40" onAction="#handleRegister"/>
+            <Region prefHeight="8"/>
+
+            <Button text="Already have an account? Sign In" styleClass="btn-link"
+                    maxWidth="300" onAction="#handleBackToLogin"/>
+        </VBox>
+    </VBox>
+</StackPane>

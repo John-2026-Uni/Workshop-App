@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.school.controller.LoginController"
+           styleClass="login-root"
+           prefWidth="420" prefHeight="400">
+
+    <VBox styleClass="login-form-panel" alignment="CENTER">
+        <VBox maxWidth="300" alignment="CENTER_LEFT" spacing="6">
+            <Label text="Sign In" styleClass="login-heading"/>
+            <Label text="Enter your credentials" styleClass="login-subheading"/>
+            <Region prefHeight="16"/>
+
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" styleClass="login-field"
+                       promptText="Username" maxWidth="300"/>
+            <Region prefHeight="8"/>
+
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" styleClass="login-field"
+                           promptText="Password" maxWidth="300"/>
+            <Region prefHeight="6"/>
+
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="300"/>
+            <Region prefHeight="6"/>
+
+            <Button text="Sign In" styleClass="btn-primary"
+                    maxWidth="300" prefHeight="40" onAction="#handleLogin"/>
+            <Region prefHeight="8"/>
+
+            <Button text="Don't have an account? Register" styleClass="btn-link"
+                    maxWidth="300" onAction="#handleGoToRegister"/>
+            <Region prefHeight="12"/>
+
+            <Label fx:id="statusLabel" text="Connecting..." styleClass="status-label"/>
+        </VBox>
+    </VBox>
+</StackPane>

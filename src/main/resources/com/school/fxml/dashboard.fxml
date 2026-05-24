@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.school.controller.DashboardController"
+            styleClass="dashboard-root"
+            prefWidth="1000" prefHeight="660">
+
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+            <Label text="🎓" style="-fx-font-size: 20px;"/>
+            <Label text="Login Database" styleClass="nav-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="totalLabel" text="Total: —" styleClass="nav-stat"/>
+            <Button text="Logout" styleClass="btn-logout" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" styleClass="content-area">
+            <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+
+            <Label text="Students" styleClass="section-title"/>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" styleClass="search-field"
+                           promptText="Search by name..." prefWidth="240" prefHeight="34"/>
+                <Button text="Search"   styleClass="btn-secondary" prefHeight="34" onAction="#handleSearch"/>
+                <Button text="↻ Refresh" styleClass="btn-ghost"    prefHeight="34" onAction="#handleRefresh"/>
+            </HBox>
+
+            <TableView fx:id="studentTable" styleClass="student-table" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"        text="ID"         prefWidth="55"/>
+                    <TableColumn fx:id="colFirstName"  text="First Name" prefWidth="150"/>
+                    <TableColumn fx:id="colLastName"   text="Last Name"  prefWidth="150"/>
+                    <TableColumn fx:id="colEmail"      text="Email"      prefWidth="220"/>
+                    <TableColumn fx:id="colGrade"      text="Grade"      prefWidth="90"/>
+                </columns>
+                <placeholder>
+                    <Label text="No students found." styleClass="table-placeholder"/>
+                </placeholder>
+            </TableView>
+
+            <HBox alignment="CENTER_RIGHT">
+                <Button text="🗑 Delete Selected" styleClass="btn-danger"
+                        prefHeight="32" onAction="#handleDelete"/>
+            </HBox>
+
+            <TitledPane text="Add New Student" styleClass="add-pane" expanded="false">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <VBox spacing="4">
+                        <Label text="First Name" styleClass="field-label"/>
+                        <TextField fx:id="tfFirstName" styleClass="form-field" promptText="First name" prefWidth="140"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Last Name" styleClass="field-label"/>
+                        <TextField fx:id="tfLastName" styleClass="form-field" promptText="Last name" prefWidth="140"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Email" styleClass="field-label"/>
+                        <TextField fx:id="tfEmail" styleClass="form-field" promptText="Email" prefWidth="190"/>
+                    </VBox>
+                    <VBox spacing="4">
+                        <Label text="Grade" styleClass="field-label"/>
+                        <TextField fx:id="tfGrade" styleClass="form-field" promptText="e.g. 10-A" prefWidth="90"/>
+                    </VBox>
+                    <VBox alignment="BOTTOM_LEFT">
+                        <Button text="+ Add" styleClass="btn-primary" prefHeight="32" onAction="#handleAdd"/>
+                    </VBox>
+                </HBox>
+            </TitledPane>
+
+            <Label fx:id="statusLabel" text="Ready." styleClass="status-label"/>
+        </VBox>
+    </center>
+</BorderPane>
